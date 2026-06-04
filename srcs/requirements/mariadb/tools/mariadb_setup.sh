@@ -53,7 +53,3 @@ exec mysqld --user=mysql
 #Starts MariaDB for real, in the foreground
 #Exec replaces the shell process with mysqld, makung it PID 1 in the container.
 #Docker needs to be PID 1 to handle signals correctly.
-
-EOF
-
-chmod +x srcs/requirements/mariadb/tools/mariadb_setup.sh
