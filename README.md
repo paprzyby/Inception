@@ -40,6 +40,7 @@ for the two persistent storages (WordPress files and MariaDB data).
 
 ## Instructions
 
+```bash
 # Clone the repo
 git clone <repo_url> && cd inception
 
