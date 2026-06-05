@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e
 
 DB_PASSWORD=$(cat /run/secrets/db_password)
 WP_ADMIN_USER=$(cut -d: -f1 /run/secrets/credentials)
@@ -8,13 +7,15 @@ WP_ADMIN_PASS=$(cut -d: -f2 /run/secrets/credentials)
 MYSQL_HOST=mariadb
 MYSQL_DATABASE=${MYSQL_DATABASE:-wordpress}
 MYSQL_USER=${MYSQL_USER:-wp_user}
-DOMAIN_NAME=${DOMAIN_NAME:-pprzyby2.42.fr}
+DOMAIN_NAME=${DOMAIN_NAME:-paprzyby.42.fr}
 WP_TITLE=${WP_TITLE:-Inception}
-WP_ADMIN_EMAIL=${WP_ADMIN_EMAIL:-pprzyby2@student.42heilbronn.de}
+WP_ADMIN_EMAIL=${WP_ADMIN_EMAIL:-paprzyby@student.42heilbronn.de}
 WP_USER=${WP_USER:-john}
 WP_USER_PASS=${WP_USER_PASS:-JohnPass42!}
-WP_USER_EMAIL=${WP_USER_EMAIL:-john@pprzyby2.42.fr}
+WP_USER_EMAIL=${WP_USER_EMAIL:-john@paprzyby.42.fr}
 #Sets all of the variables that the script needs
+
+mkdir -p /run/php
 
 cd /var/www/html
 

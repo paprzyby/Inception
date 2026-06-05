@@ -1,8 +1,5 @@
 #!/bin/bash
 
-set -e
-#The script stops immediately if any command fails.
-
 DB_PASSWORD=$(cat /run/secrets/db_password)
 DB_ROOT_PASSWORD=$(cat /run/secrets/db_root_password)
 #Reads passwords from Docker secrets. These secrets are mounted later on as files, so they dont appear in the Dockerfile or env.
@@ -17,18 +14,13 @@ chown mysql:mysql /var/run/mysqld
 #Creates the directory MariaDB needs for its socket file and gives ownership to the mysql user.
 
 if [ ! -d "/var/lib/mysql/mysql" ]; then
-#checks if the database has already been initialized
 
     mysql_install_db --user=mysql --datadir=/var/lib/mysql --skip-test-db
-    #Creates the initial MariaDB system tables
 
     mysqld --user=mysql --skip-networking & TEMP_PID=$!
-    #Starts MariaDB only on the local socket and captures the process ID to later shut it down
 
     until mysqladmin ping --silent 2>/dev/null; do
         sleep 1
-    #Waits until MariaDB is actually ready to accept commands.
-    #Without this the next SQL commands would run before MariaDB is ready and fail.
 
     done
 
@@ -49,7 +41,7 @@ SQL
     #Shuts down the temporart MariaDB instance and waits for it to fully stop
 fi
 
-exec mysqld --user=mysql
+exec mysqld --user=mysql --bind-address=0.0.0.0
 #Starts MariaDB for real, in the foreground
 #Exec replaces the shell process with mysqld, makung it PID 1 in the container.
 #Docker needs to be PID 1 to handle signals correctly.
