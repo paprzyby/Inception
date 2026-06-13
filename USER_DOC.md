@@ -34,8 +34,8 @@ committed to Git. They must be recreated manually on each new machine.
 | secrets/db_password.txt      | MariaDB wp_user password    |
 | secrets/db_root_password.txt | MariaDB root password       |
 
-WordPress admin username: paprzyby_wp
-Second user username: john (role: author)
+WordPress admin username: paprzyby_wp (password in `secrets/credentials.txt`)
+Second user username: john, role: author (password in `srcs/.env` → `WP_USER_PASS`)
 
 ## Health Check
 
