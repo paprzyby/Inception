@@ -1,6 +1,6 @@
 ## Prerequisites
 
-- Debian Bullseye VM
+- Debian Bookworm VM
 - Docker and docker-compose installed
 - `paprzyby.42.fr` pointing to `127.0.0.1` in `/etc/hosts`
 
