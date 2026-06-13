@@ -11,7 +11,7 @@ DOMAIN_NAME=${DOMAIN_NAME:-paprzyby.42.fr}
 WP_TITLE=${WP_TITLE:-Inception}
 WP_ADMIN_EMAIL=${WP_ADMIN_EMAIL:-paprzyby@student.42heilbronn.de}
 WP_USER=${WP_USER:-john}
-WP_USER_PASS=${WP_USER_PASS:-JohnPass42!}
+WP_USER_PASS=${WP_USER_PASS}
 WP_USER_EMAIL=${WP_USER_EMAIL:-john@paprzyby.42.fr}
 #Sets all of the variables that the script needs
 
@@ -53,4 +53,4 @@ if [ ! -f wp-config.php ]; then
         --user_pass="${WP_USER_PASS}"
 fi
 
-exec php-fpm7.4 -F
+exec php-fpm8.2 -F

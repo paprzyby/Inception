@@ -16,8 +16,17 @@ echo "paprzyby_wp:StrongWpPass42!" > secrets/credentials.txt
 echo "StrongDbPass42!"             > secrets/db_password.txt
 echo "StrongRootPass42!"           > secrets/db_root_password.txt
 
-# 3. Create .env
-cp srcs/.env.example srcs/.env
+# 3. Create .env (no passwords here — those go in secrets/)
+cat > srcs/.env << 'EOF'
+DOMAIN_NAME=paprzyby.42.fr
+MYSQL_DATABASE=wordpress
+MYSQL_USER=wp_user
+WP_TITLE=Inception
+WP_ADMIN_EMAIL=paprzyby@student.42heilbronn.de
+WP_USER=john
+WP_USER_PASS=JohnPass42!
+WP_USER_EMAIL=john@paprzyby.42.fr
+EOF
 
 # 4. Add domain to /etc/hosts
 echo "127.0.0.1 paprzyby.42.fr" >> /etc/hosts

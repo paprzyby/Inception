@@ -12,7 +12,7 @@ are connected via a Docker bridge network with persistent named volumes for data
 storage.
 
 ### Docker usage
-Each service has its own Dockerfile built from debian:bullseye. No pre-built
+Each service has its own Dockerfile built from debian:bookworm. No pre-built
 images are used except the base OS. Docker Compose orchestrates the three
 containers, their volumes, network, and secrets.
 
@@ -50,8 +50,17 @@ echo "paprzyby_wp:StrongWpPass42!" > secrets/credentials.txt
 echo "StrongDbPass42!"             > secrets/db_password.txt
 echo "StrongRootPass42!"           > secrets/db_root_password.txt
 
-# Create .env from example
-cp srcs/.env.example srcs/.env
+# Create .env (no passwords here — those go in secrets/)
+cat > srcs/.env << 'EOF'
+DOMAIN_NAME=paprzyby.42.fr
+MYSQL_DATABASE=wordpress
+MYSQL_USER=wp_user
+WP_TITLE=Inception
+WP_ADMIN_EMAIL=paprzyby@student.42heilbronn.de
+WP_USER=john
+WP_USER_PASS=JohnPass42!
+WP_USER_EMAIL=john@paprzyby.42.fr
+EOF
 
 # Add domain to /etc/hosts
 echo "127.0.0.1 paprzyby.42.fr" >> /etc/hosts
@@ -71,3 +80,6 @@ Admin panel: https://paprzyby.42.fr/wp-admin
 - https://mariadb.com/kb/en/
 - https://www.php.net/manual/en/install.fpm.configuration.php
 - https://docs.docker.com/engine/swarm/secrets/
+
+**AI usage:** Claude (claude.ai) was used to assist with writing the documentation files
+(README.md, USER_DOC.md, DEV_DOC.md)

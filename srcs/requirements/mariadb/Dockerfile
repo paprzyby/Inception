@@ -1,6 +1,6 @@
 #This Dockerfile defines how the MariaDB image gets built:
 
-FROM debian:bullseye
+FROM debian:bookworm
 #Base image
 
 RUN apt-get update && apt-get install -y \
