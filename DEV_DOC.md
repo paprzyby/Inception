@@ -12,7 +12,7 @@ git clone <repo_url> && cd inception
 
 # 2. Create secrets — never committed to Git
 mkdir -p secrets
-echo "pprzyby2_wp:StrongWpPass42!" > secrets/credentials.txt
+echo "paprzyby_wp:StrongWpPass42!" > secrets/credentials.txt
 echo "StrongDbPass42!"             > secrets/db_password.txt
 echo "StrongRootPass42!"           > secrets/db_root_password.txt
 
@@ -55,8 +55,8 @@ make fclean && make
 
 | Data            | Host path                       |
 |-----------------|---------------------------------|
-| WordPress files | /home/pprzyby2/data/wordpress   |
-| MariaDB data    | /home/pprzyby2/data/mariadb     |
+| WordPress files | /home/paprzyby/data/wordpress   |
+| MariaDB data    | /home/paprzyby/data/mariadb     |
 
 Both are named Docker volumes using a local bind driver. The data persists
 across container restarts. Deleting these directories destroys all data.

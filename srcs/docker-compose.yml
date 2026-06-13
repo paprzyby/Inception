@@ -65,14 +65,14 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/pprzyby2/data/wordpress
+      device: /home/paprzyby/data/wordpress
 
   mariadb_data:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /home/pprzyby2/data/mariadb
+      device: /home/paprzyby/data/mariadb
 
 secrets:
   db_password:

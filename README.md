@@ -46,7 +46,7 @@ git clone <repo_url> && cd inception
 
 # Create secrets (do this on every new machine — never committed to git)
 mkdir -p secrets
-echo "pprzyby2_wp:StrongWpPass42!" > secrets/credentials.txt
+echo "paprzyby_wp:StrongWpPass42!" > secrets/credentials.txt
 echo "StrongDbPass42!"             > secrets/db_password.txt
 echo "StrongRootPass42!"           > secrets/db_root_password.txt
 
